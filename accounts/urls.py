@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -13,5 +14,6 @@ urlpatterns = [
     path('create_order/<str:pk>', views.createOrder, name='create-order'),
     path('update_order/<str:pk>/', views.updateOrder, name='update-order'),
     path('delete_order/<str:pk>/', views.deleteOrder, name='delete-order'),
+    path('reset_password/', auth_views.PasswordResetView.as_view()),
 
 ]
